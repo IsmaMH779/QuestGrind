@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/inventoryFragment"
+        android:icon="@android:drawable/ic_menu_directions"
+        android:title="Inventory" />
+
+    <item
+        android:id="@+id/dailyQuestFragment"
+        android:icon="@android:drawable/ic_menu_directions"
+        android:title="Daily" />
+
+    <item
+        android:id="@+id/attributesFragment"
+        android:icon="@android:drawable/ic_menu_directions"
+        android:title="Attributes" />
+</menu>

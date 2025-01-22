@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_graph"
+    app:startDestination="@id/dailyQuestFragment">
+
+    <fragment
+        android:id="@+id/dailyQuestFragment"
+        android:name="com.example.questgrind.dailyQuest.DailyQuestFragment"
+        android:label="fragment_daily_quest"
+        tools:layout="@layout/fragment_daily_quest" />
+    <fragment
+        android:id="@+id/attributesFragment"
+        android:name="com.example.questgrind.attributes.AttributesFragment"
+        android:label="fragment_attributes"
+        tools:layout="@layout/fragment_attributes" />
+    <fragment
+        android:id="@+id/inventoryFragment"
+        android:name="com.example.questgrind.inventory.InventoryFragment"
+        android:label="fragment_inventory"
+        tools:layout="@layout/fragment_inventory" />
+</navigation>
