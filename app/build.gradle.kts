@@ -46,4 +46,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // Librería para ViewModel y LiveData (parte de Android Architecture Components)
+    implementation (libs.lifecycle.viewmodel.ktx)
+    implementation (libs.lifecycle.livedata.ktx)
+    // RecyclerView
+    implementation (libs.recyclerview.v131)
+
 }
