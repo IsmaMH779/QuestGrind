@@ -22,14 +22,14 @@ public class Player {
     public Player(String name, int level) {
         this.name = name;
         this.level = level;
-        this.xp = 0;
-        this.xpToNextLevel = 10;
+        this.xp = 50;
+        this.xpToNextLevel = 100;
         this.vitality = 10;
         this.strength = 10;
         this.intelligence = 10;
         this.agility = 10;
         this.perception = 10;
-        this.aviableSkillPoints = 10;
+        this.aviableSkillPoints = 0;
     }
 
     public String getName() {

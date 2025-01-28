@@ -16,13 +16,30 @@
         <TextView
             android:id="@+id/playerName"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="PlayerName" />
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/playerLevel"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ProgressBar
+            android:id="@+id/xpBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="266dp"
             android:layout_height="wrap_content"
-            android:text="Level 0" />
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/aviablePointsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
     </LinearLayout>
 </FrameLayout>

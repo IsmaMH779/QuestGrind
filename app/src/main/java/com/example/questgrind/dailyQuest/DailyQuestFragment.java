@@ -51,6 +51,7 @@ public class DailyQuestFragment extends Fragment {
         // observar los datos del boleano que determina si se han completado todas las misiones
         viewModel.getAllQuestsCompleted().observe(getViewLifecycleOwner(), isCompleted -> {
             if (isCompleted != null && isCompleted) {
+                viewModel.givePoints();
                 binding.completedInfo.setText("Has completado todas las misiones");
             } else {
                 binding.completedInfo.setText("Completa todas las misiones");

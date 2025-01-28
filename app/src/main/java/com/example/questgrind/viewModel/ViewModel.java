@@ -12,6 +12,7 @@ import com.example.questgrind.dailyQuest.Quest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -20,8 +21,8 @@ public class ViewModel extends AndroidViewModel {
     // quest
     private MutableLiveData<List<Quest>> questList = new MutableLiveData<>();
     private MutableLiveData<Boolean> allQuestsCompleted = new MutableLiveData<>(false);
-
     private MutableLiveData<Player> player = new MutableLiveData<>();
+    private MutableLiveData<Integer> aviableSkillPoints = new MutableLiveData<>(0);
 
     // Constructor
     public ViewModel(@NonNull Application application) {
@@ -39,6 +40,8 @@ public class ViewModel extends AndroidViewModel {
 
         Player p = new Player("Isma", 1);
         player.setValue(p);
+
+        aviableSkillPoints.setValue(p.getAviableSkillPoints());
     }
 
     /*
@@ -87,6 +90,10 @@ public class ViewModel extends AndroidViewModel {
     Todo lo que tiene que ver con AttributesFragment
     */
 
+    public MutableLiveData<Integer> getAviableSkillPoints() {
+        return aviableSkillPoints;
+    }
+
     public MutableLiveData<Player> getPlayer() {
         return player;
     }
@@ -96,26 +103,35 @@ public class ViewModel extends AndroidViewModel {
 
             Player playerUpdate = player.getValue();
             switch (attributePos) {
-                case 1:
+                case 0:
                     playerUpdate.setVitality(playerUpdate.getVitality() + 1);
                     break;
-                case 2:
+                case 1:
                     playerUpdate.setStrength(playerUpdate.getStrength() + 1);
                     break;
-                case 3:
+                case 2:
                     playerUpdate.setIntelligence(playerUpdate.getIntelligence() + 1);
                     break;
-                case 4:
+                case 3:
                     playerUpdate.setAgility(playerUpdate.getAgility() + 1);
                     break;
-                case 5:
+                case 4:
                     playerUpdate.setPerception(playerUpdate.getPerception() + 1);
                     break;
             }
-
+            playerUpdate.setAviableSkillPoints(playerUpdate.getAviableSkillPoints() - 1);
             player.setValue(playerUpdate);
         }
 
     }
 
+    public void givePoints() {
+        Player playerUpdated = player.getValue();
+
+        playerUpdated.setAviableSkillPoints(playerUpdated.getAviableSkillPoints() + 3);
+
+        player.setValue(playerUpdated);
+
+        aviableSkillPoints.setValue(player.getValue().getAviableSkillPoints());
+    }
 }
