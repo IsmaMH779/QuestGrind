@@ -12,20 +12,18 @@ import com.example.questgrind.dailyQuest.Quest;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
-public class ViewModel extends AndroidViewModel {
+public class AppViewModel extends AndroidViewModel {
 
-    // quest
     private MutableLiveData<List<Quest>> questList = new MutableLiveData<>();
     private MutableLiveData<Boolean> allQuestsCompleted = new MutableLiveData<>(false);
     private MutableLiveData<Player> player = new MutableLiveData<>();
     private MutableLiveData<Integer> aviableSkillPoints = new MutableLiveData<>(0);
+    private Boolean givedPoints;
+    private Boolean givedXp;
 
     // Constructor
-    public ViewModel(@NonNull Application application) {
+    public AppViewModel(@NonNull Application application) {
         super(application);
 
         List<Quest> initialQuest = new ArrayList<>();
@@ -42,6 +40,8 @@ public class ViewModel extends AndroidViewModel {
         player.setValue(p);
 
         aviableSkillPoints.setValue(p.getAviableSkillPoints());
+        givedPoints = false;
+        givedXp = false;
     }
 
     /*
@@ -126,12 +126,27 @@ public class ViewModel extends AndroidViewModel {
     }
 
     public void givePoints() {
-        Player playerUpdated = player.getValue();
+        if (!givedPoints && player.getValue() != null) {
+            Player playerUpdated = player.getValue();
 
-        playerUpdated.setAviableSkillPoints(playerUpdated.getAviableSkillPoints() + 3);
+            playerUpdated.setAviableSkillPoints(playerUpdated.getAviableSkillPoints() + 3);
 
-        player.setValue(playerUpdated);
+            player.setValue(playerUpdated);
 
-        aviableSkillPoints.setValue(player.getValue().getAviableSkillPoints());
+            aviableSkillPoints.setValue(player.getValue().getAviableSkillPoints());
+        }
+        givedPoints = true;
     }
+
+    public void giveXP() {
+        if (!givedXp && player.getValue() != null) {
+            Player playerUpdated = player.getValue();
+
+            playerUpdated.giveXP(50);
+
+            player.setValue(playerUpdated);
+        }
+        givedXp = true;
+    }
+
 }

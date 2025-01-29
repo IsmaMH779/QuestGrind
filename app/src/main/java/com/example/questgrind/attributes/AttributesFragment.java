@@ -18,12 +18,12 @@ import com.example.questgrind.R;
 import com.example.questgrind.dailyQuest.QuestAdapter;
 import com.example.questgrind.databinding.FragmentAttributesBinding;
 import com.example.questgrind.databinding.FragmentDailyQuestBinding;
-import com.example.questgrind.viewModel.ViewModel;
+import com.example.questgrind.viewModel.AppViewModel;
 
 public class AttributesFragment extends Fragment {
 
     private FragmentAttributesBinding binding;
-    private ViewModel viewModel;
+    private AppViewModel viewModel;
 
     @Nullable
     @Override
@@ -41,7 +41,7 @@ public class AttributesFragment extends Fragment {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         // obtener el ViewModel
-        viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
         viewModel.getPlayer().observe(getViewLifecycleOwner(), player -> {
             binding.playerName.setText(player.getName());

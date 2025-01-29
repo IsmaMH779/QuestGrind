@@ -10,15 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.questgrind.R;
-import com.example.questgrind.viewModel.ViewModel;
+import com.example.questgrind.viewModel.AppViewModel;
 
 import java.util.List;
 
 public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.QuestViewHolder> {
     private final List<Quest> questList;
-    private final ViewModel viewModel;
+    private final AppViewModel viewModel;
 
-    public QuestAdapter(List<Quest> questList, ViewModel viewModel) {
+    public QuestAdapter(List<Quest> questList, AppViewModel viewModel) {
         this.questList = questList;
         this.viewModel = viewModel;
     }

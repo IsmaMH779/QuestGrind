@@ -15,12 +15,12 @@ import android.view.ViewGroup;
 
 import com.example.questgrind.R;
 import com.example.questgrind.databinding.FragmentDailyQuestBinding;
-import com.example.questgrind.viewModel.ViewModel;
+import com.example.questgrind.viewModel.AppViewModel;
 
 public class DailyQuestFragment extends Fragment {
 
     private FragmentDailyQuestBinding binding;
-    private ViewModel viewModel;
+    private AppViewModel viewModel;
 
     @Nullable
     @Override
@@ -40,7 +40,7 @@ public class DailyQuestFragment extends Fragment {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         // obtener el ViewModel
-        viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
         // observar los datos de la lista
         viewModel.getQuestList().observe(getViewLifecycleOwner(), quests -> {
@@ -52,6 +52,7 @@ public class DailyQuestFragment extends Fragment {
         viewModel.getAllQuestsCompleted().observe(getViewLifecycleOwner(), isCompleted -> {
             if (isCompleted != null && isCompleted) {
                 viewModel.givePoints();
+                viewModel.giveXP();
                 binding.completedInfo.setText("Has completado todas las misiones");
             } else {
                 binding.completedInfo.setText("Completa todas las misiones");

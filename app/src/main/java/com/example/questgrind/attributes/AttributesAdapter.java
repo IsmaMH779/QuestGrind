@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.questgrind.R;
 import com.example.questgrind.dailyQuest.QuestAdapter;
-import com.example.questgrind.viewModel.ViewModel;
+import com.example.questgrind.viewModel.AppViewModel;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,14 +22,14 @@ public class AttributesAdapter extends RecyclerView.Adapter<AttributesAdapter.At
 
     private final String[] attributes = {"Vitality", "Strength", "Intelligence", "Agility", "Perception"};
 
-    private ViewModel viewModel;
+    private AppViewModel viewModel;
     private final OnAddPointClickListener onAddPointClickListener;
 
     public interface OnAddPointClickListener {
         void onAddPointClick(int position);
     }
 
-    public AttributesAdapter(ViewModel viewModel, OnAddPointClickListener listener) {
+    public AttributesAdapter(AppViewModel viewModel, OnAddPointClickListener listener) {
         this.viewModel = viewModel;
         this.onAddPointClickListener = listener;
     }
