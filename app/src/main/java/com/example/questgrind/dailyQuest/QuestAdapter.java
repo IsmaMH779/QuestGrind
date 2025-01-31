@@ -34,6 +34,7 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.QuestViewHol
     public void onBindViewHolder(@NonNull QuestViewHolder holder, int position) {
         Quest quest = questList.get(position);
         holder.titleTextView.setText(quest.getTitle());
+        holder.numAttribute.setText(quest.getObjective());
         holder.completedCheckBox.setChecked(quest.getCompleted());
 
         // si la tarea esta completada deshabilita el checkbox
@@ -57,11 +58,13 @@ public class QuestAdapter extends RecyclerView.Adapter<QuestAdapter.QuestViewHol
 
     static class QuestViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
+        TextView numAttribute;
         CheckBox completedCheckBox;
 
         public QuestViewHolder(@NonNull View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.textViewTitle);
+            numAttribute = itemView.findViewById(R.id.numAttribute);
             completedCheckBox = itemView.findViewById(R.id.checkBoxCompleted);
         }
     }

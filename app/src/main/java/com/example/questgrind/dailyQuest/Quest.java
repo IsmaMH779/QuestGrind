@@ -4,15 +4,17 @@ public class Quest {
     private int id;
     private String title;
     private Boolean completed;
+    private String objective;
 
 
 
     // Declare constructor
 
-    public Quest(int id, String title, Boolean completed) {
+    public Quest(int id, String title,  String objective, Boolean completed) {
         this.id = id;
         this.title = title;
         this.completed = completed;
+        this.objective = objective;
     }
 
     public int getId() {
@@ -37,5 +39,9 @@ public class Quest {
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
+    }
+
+    public String getObjective() {
+        return objective;
     }
 }

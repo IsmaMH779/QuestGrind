@@ -35,11 +35,11 @@ public class AppViewModel extends AndroidViewModel {
 
         List<Quest> initialQuest = new ArrayList<>();
 
-        initialQuest.add(new Quest(1, "Flexiones", false));
-        initialQuest.add(new Quest(2, "Abdominales", false));
-        initialQuest.add(new Quest(3, "Sentadillas", false));
-        initialQuest.add(new Quest(4, "Leer", false));
-        initialQuest.add(new Quest(5, "Estudiar", false));
+        initialQuest.add(new Quest(1, "Flexiones", "[10]",false));
+        initialQuest.add(new Quest(2, "Abdominales", "[10]",false));
+        initialQuest.add(new Quest(3, "Sentadillas", "[10]",false));
+        initialQuest.add(new Quest(4, "Leer", "[10 pag]",false));
+        initialQuest.add(new Quest(5, "Estudiar", "[20 min]",false));
 
         questList.setValue(initialQuest);
 
