@@ -8,23 +8,30 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.questgrind.attributes.Player;
+import com.example.questgrind.attributes.PlayerRepository;
 import com.example.questgrind.dailyQuest.Quest;
+import com.example.questgrind.inventory.Item;
+import com.example.questgrind.inventory.ItemsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AppViewModel extends AndroidViewModel {
 
+    private PlayerRepository playerRepository;
     private MutableLiveData<List<Quest>> questList = new MutableLiveData<>();
     private MutableLiveData<Boolean> allQuestsCompleted = new MutableLiveData<>(false);
-    private MutableLiveData<Player> player = new MutableLiveData<>();
+    private LiveData<Player> player = new MutableLiveData<>();
     private MutableLiveData<Integer> aviableSkillPoints = new MutableLiveData<>(0);
     private Boolean givedPoints;
     private Boolean givedXp;
+    private MutableLiveData<List<Item>> items = new MutableLiveData<>();
 
     // Constructor
     public AppViewModel(@NonNull Application application) {
         super(application);
+
+        playerRepository = new PlayerRepository(application);
 
         List<Quest> initialQuest = new ArrayList<>();
 
@@ -36,12 +43,16 @@ public class AppViewModel extends AndroidViewModel {
 
         questList.setValue(initialQuest);
 
-        Player p = new Player("Isma", 1);
-        player.setValue(p);
+        Player p = new Player();
+
+        player = playerRepository.getPlayer();
 
         aviableSkillPoints.setValue(p.getAviableSkillPoints());
         givedPoints = false;
         givedXp = false;
+
+        ItemsRepository itemsRepository = new ItemsRepository();
+        items.setValue(itemsRepository.getItemsRepositoryList());
     }
 
     /*
@@ -94,8 +105,11 @@ public class AppViewModel extends AndroidViewModel {
         return aviableSkillPoints;
     }
 
-    public MutableLiveData<Player> getPlayer() {
+    public LiveData<Player> getPlayer() {
         return player;
+    }
+    public void updatePlayer(Player player) {
+        playerRepository.update(player);
     }
 
     public void addLevelToAttribute(int attributePos) {
@@ -120,33 +134,28 @@ public class AppViewModel extends AndroidViewModel {
                     break;
             }
             playerUpdate.setAviableSkillPoints(playerUpdate.getAviableSkillPoints() - 1);
-            player.setValue(playerUpdate);
+            updatePlayer(playerUpdate);
         }
 
     }
 
     public void givePoints() {
-        if (!givedPoints && player.getValue() != null) {
-            Player playerUpdated = player.getValue();
-
-            playerUpdated.setAviableSkillPoints(playerUpdated.getAviableSkillPoints() + 3);
-
-            player.setValue(playerUpdated);
-
-            aviableSkillPoints.setValue(player.getValue().getAviableSkillPoints());
+        if (player.getValue() != null) {
+            Player updatedPlayer = player.getValue();
+            updatedPlayer.setAviableSkillPoints(updatedPlayer.getAviableSkillPoints() + 3);
+            updatePlayer(updatedPlayer);
         }
-        givedPoints = true;
     }
 
     public void giveXP() {
-        if (!givedXp && player.getValue() != null) {
-            Player playerUpdated = player.getValue();
-
-            playerUpdated.giveXP(50);
-
-            player.setValue(playerUpdated);
+        if (player.getValue() != null) {
+            Player updatedPlayer = player.getValue();
+            updatedPlayer.giveXP(50);
+            updatePlayer(updatedPlayer);
         }
-        givedXp = true;
     }
 
+    public MutableLiveData<List<Item>> getItems() {
+        return items;
+    }
 }

@@ -80,4 +80,3 @@ public class AttributesAdapter extends RecyclerView.Adapter<AttributesAdapter.At
         }
     }
 }
-

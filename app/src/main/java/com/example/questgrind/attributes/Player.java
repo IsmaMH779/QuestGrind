@@ -1,6 +1,12 @@
 package com.example.questgrind.attributes;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "player")
 public class Player {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
 
     // datos generales
     private String name;
@@ -19,11 +25,11 @@ public class Player {
     // puntos disponibles
     private int aviableSkillPoints;
 
-    public Player(String name, int level) {
-        this.name = name;
-        this.level = level;
+    public Player() {
+        this.name = "Isma";
+        this.level = 1;
         this.xp = 0;
-        this.xpToNextLevel = 100;
+        this.xpToNextLevel = 50;
         this.vitality = 10;
         this.strength = 10;
         this.intelligence = 10;
@@ -123,5 +129,13 @@ public class Player {
 
     public void setAviableSkillPoints(int aviableSkillPoints) {
         this.aviableSkillPoints = aviableSkillPoints;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

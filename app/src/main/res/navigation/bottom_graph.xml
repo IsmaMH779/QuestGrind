@@ -20,4 +20,9 @@
         android:name="com.example.questgrind.inventory.InventoryFragment"
         android:label="fragment_inventory"
         tools:layout="@layout/fragment_inventory" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.example.questgrind.inventory.ItemFragment"
+        android:label="fragment_item"
+        tools:layout="@layout/fragment_item" />
 </navigation>

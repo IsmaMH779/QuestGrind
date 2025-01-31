@@ -43,6 +43,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.room.common)
+    implementation(libs.room.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -52,5 +54,6 @@ dependencies {
     implementation (libs.lifecycle.livedata.ktx)
     // RecyclerView
     implementation (libs.recyclerview.v131)
+    annotationProcessor(libs.room.compiler)
 
 }
