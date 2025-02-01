@@ -1,12 +1,16 @@
 package com.example.questgrind.attributes;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.questgrind.R;
@@ -20,7 +24,7 @@ import java.util.List;
 
 public class AttributesAdapter extends RecyclerView.Adapter<AttributesAdapter.AttributeViewHolder> {
 
-    private final String[] attributes = {"Vitality", "Strength", "Intelligence", "Agility", "Perception"};
+    private final String[] attributes = {"Vitalidad", "Fuerza", "Inteligencia", "Agilidad", "Percepcion"};
 
     private AppViewModel viewModel;
     private final OnAddPointClickListener onAddPointClickListener;
@@ -44,8 +48,13 @@ public class AttributesAdapter extends RecyclerView.Adapter<AttributesAdapter.At
 
     @Override
     public void onBindViewHolder(@NonNull AttributeViewHolder holder, int position) {
+        // extraer el context
+        Context context = holder.itemView.getContext();
+
         // extraer el nombre del atributo
         String attribute = attributes[position];
+        String imageName = attributes[position].toLowerCase();
+
         int value = 0;
 
         switch (position) {
@@ -56,6 +65,11 @@ public class AttributesAdapter extends RecyclerView.Adapter<AttributesAdapter.At
             case 4: value = viewModel.getPlayer().getValue().getPerception(); break;
         }
 
+
+        int resId = context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+        if (resId != 0) {
+            holder.attributeIcon.setImageDrawable(ContextCompat.getDrawable(context, resId));
+        }
         holder.attributeName.setText(attribute);
         holder.attributeValue.setText(String.valueOf(value));
         holder.addButton.setVisibility(viewModel.getPlayer().getValue().getAviableSkillPoints() > 0 ? View.VISIBLE : View.GONE);
@@ -70,13 +84,15 @@ public class AttributesAdapter extends RecyclerView.Adapter<AttributesAdapter.At
 
     static class AttributeViewHolder extends RecyclerView.ViewHolder {
         TextView attributeName, attributeValue;
-        Button addButton;
+        ImageButton addButton;
+        ImageView attributeIcon;
 
         public AttributeViewHolder(@NonNull View itemView) {
             super(itemView);
             attributeName = itemView.findViewById(R.id.attributeName);
             attributeValue = itemView.findViewById(R.id.attributeValue);
             addButton = itemView.findViewById(R.id.addButton);
+            attributeIcon = itemView.findViewById(R.id.attributeIcon);
         }
     }
 }

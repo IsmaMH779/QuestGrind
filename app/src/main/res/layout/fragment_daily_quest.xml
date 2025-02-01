@@ -8,73 +8,109 @@
     >
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="373dp"
+    <androidx.cardview.widget.CardView
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#8009144F"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        android:background="#09144F"
+        android:shadowColor="#04E1FA"
+
         >
-        <!-- Linea superior -->
-        <View
-            android:id="@+id/barraSuperior"
-            android:layout_width="250dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="40dp"
-            android:background="@color/white"
-            android:elevation="4dp"
-            app:layout_constraintBottom_toTopOf="@id/infoTarea"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:id="@+id/infoTarea"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
 
-            android:shadowColor="#04E1FA"
-            android:text="INFO DE LA TAREA"
+            <TextView
+                android:id="@+id/infoTarea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="INFO DE LA TAREA"
+                android:textColor="@color/white"
+                android:textSize="27dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="58dp"
+                android:shadowColor="#04E1FA"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                />
 
-            android:textColor="@color/white"
+            <TextView
+                android:id="@+id/misiondiaria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Mision Diaria: El progreso]"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:shadowColor="#04E1FA"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                />
 
-            android:textSize="27dp"
+            <TextView
+                android:id="@+id/Objetivos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Objetivos"
+                android:textColor="@color/white"
+                android:textSize="27dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="38dp"
+                android:shadowColor="#04E1FA"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:layout_marginBottom="42dp"
+                />
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/barraSuperior"
-            app:layout_constraintBottom_toTopOf="@id/recyclerView"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="44dp"
+                android:paddingEnd="44dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                android:layout_gravity="center"
+                />
 
-            />
+            <TextView
+                android:id="@+id/completedInfo"
+                android:layout_width="227dp"
+                android:layout_height="wrap_content"
+                android:text=""
+                app:layout_constraintTop_toBottomOf="@id/recyclerView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="52dp"
+                android:layout_marginTop="45dp"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="44dp"
-            android:paddingEnd="44dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:shadowColor="#04E1FA"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="10"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                />
 
-        <TextView
-            android:id="@+id/completedInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            app:layout_constraintTop_toBottomOf="@id/recyclerView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
+        </LinearLayout>
+</androidx.cardview.widget.CardView>
 
 </LinearLayout>

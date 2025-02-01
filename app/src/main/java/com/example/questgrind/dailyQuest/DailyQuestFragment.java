@@ -55,7 +55,7 @@ public class DailyQuestFragment extends Fragment {
                 viewModel.giveXP();
                 binding.completedInfo.setText("Has completado todas las misiones");
             } else {
-                binding.completedInfo.setText("Completa todas las misiones");
+                binding.completedInfo.setText("¡Atencion! - No hacer las misiones diarias ralentizara tu progreso.");
             }
         });
     }

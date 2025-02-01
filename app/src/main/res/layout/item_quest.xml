@@ -19,7 +19,13 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:shadowColor="#04E1FA"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:textColor="@color/white"
+            />
 
 
         <TextView
@@ -33,13 +39,22 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/checkBoxCompleted"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:shadowColor="#04E1FA"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"
+            android:textColor="@color/white"
+            />
 
         <CheckBox
             android:id="@+id/checkBoxCompleted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
