@@ -1,5 +1,6 @@
 package com.example.questgrind.inventory;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,9 +41,32 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
         Item item = items.get(position);
 
         holder.name.setText(item.getName());
-        holder.rank.setText(item.getRank());
+
+        // color del rango en base al rango
+        switch (item.getRank()) {
+            case "S":
+                holder.rank.setText(item.getRank());
+                holder.rank.setTextColor(Color.parseColor("#FF0000"));
+                holder.rank.setShadowLayer(10,0,0, Color.parseColor("#FF0000"));
+                break;
+            case "A":
+                holder.rank.setText(item.getRank());
+                holder.rank.setTextColor(Color.parseColor("#c802fd"));
+                holder.rank.setShadowLayer(10,0,0, Color.parseColor("#c802fd"));
+                break;
+            case "B":
+                holder.rank.setText(item.getRank());
+                holder.rank.setTextColor(Color.parseColor("#0094cf"));
+                holder.rank.setShadowLayer(10,0,0, Color.parseColor("#0094cf"));
+                break;
+            case "C":
+                holder.rank.setText(item.getRank());
+                holder.rank.setTextColor(Color.parseColor("#ffffff"));
+                holder.rank.setShadowLayer(10,0,0, Color.parseColor("#ebebeb"));
+                break;
+        }
+
         holder.attributes.setText(item.getAttribute());
-        holder.passive.setText(item.getPassive());
         holder.image.setImageResource(item.getImage());
 
         // Click en el item
@@ -60,14 +84,13 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
 
     static class InventoryViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
-        TextView name, rank, attributes, passive;
+        TextView name, rank, attributes;
         public InventoryViewHolder(@NonNull View itemView) {
             super(itemView);
 
             name = itemView.findViewById(R.id.itemName);
             rank = itemView.findViewById(R.id.itemRank);
             attributes = itemView.findViewById(R.id.itemAttribute);
-            passive = itemView.findViewById(R.id.itemPassive);
             image = itemView.findViewById(R.id.itemImage);
         }
     }

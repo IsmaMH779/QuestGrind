@@ -17,6 +17,9 @@
         android:layout_gravity="center"
         android:shadowColor="#04E1FA"
 
+        android:outlineSpotShadowColor="#04E1FA"
+        android:outlineAmbientShadowColor="#04E1FA"
+        app:cardElevation="1dp"
         >
 
         <LinearLayout

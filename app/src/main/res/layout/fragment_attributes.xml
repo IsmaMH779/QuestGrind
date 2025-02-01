@@ -20,13 +20,17 @@
             app:cardBackgroundColor="#8009144F"
             android:layout_marginTop="50dp"
             android:layout_gravity="center"
-            android:elevation="0dp"
+            android:outlineSpotShadowColor="#04E1FA"
+            android:outlineAmbientShadowColor="#04E1FA"
+            app:cardElevation="1dp"
             >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="2dp"
+                >
 
                 <TextView
                     android:id="@+id/playerName"
@@ -103,6 +107,10 @@
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
             android:elevation="0dp"
+
+            android:outlineSpotShadowColor="#04E1FA"
+            android:outlineAmbientShadowColor="#04E1FA"
+            app:cardElevation="2dp"
             >
 
             <LinearLayout

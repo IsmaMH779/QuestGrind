@@ -34,6 +34,7 @@ public class InventoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         viewModel = new ViewModelProvider(requireActivity()).get(AppViewModel.class);
 
         recyclerView = view.findViewById(R.id.recyclerViewInventory);
