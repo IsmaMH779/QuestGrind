@@ -65,8 +65,6 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
                 holder.rank.setShadowLayer(10,0,0, Color.parseColor("#ebebeb"));
                 break;
         }
-
-        holder.attributes.setText(item.getAttribute());
         holder.image.setImageResource(item.getImage());
 
         // Click en el item
@@ -84,13 +82,12 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Inve
 
     static class InventoryViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
-        TextView name, rank, attributes;
+        TextView name, rank;
         public InventoryViewHolder(@NonNull View itemView) {
             super(itemView);
 
             name = itemView.findViewById(R.id.itemName);
             rank = itemView.findViewById(R.id.itemRank);
-            attributes = itemView.findViewById(R.id.itemAttribute);
             image = itemView.findViewById(R.id.itemImage);
         }
     }

@@ -2,43 +2,79 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="20dp"
+    android:background="#09144F"
+    app:cardCornerRadius="8dp">
 
-    <ImageView
-        android:id="@+id/detail_item_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/detail_item_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="8dp" />
+            <ImageView
+                android:id="@+id/detail_item_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/detail_item_rank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="4dp" />
 
-    <TextView
-        android:id="@+id/detail_item_attributes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="4dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp">
 
-    <TextView
-        android:id="@+id/detail_item_passive"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="@android:color/holo_blue_light"
-        android:layout_marginTop="4dp"/>
+                    <TextView
+                        android:id="@+id/detail_item_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/white"
+                        android:shadowColor="#04E1FA"
+                        android:shadowDx="0"
+                        android:shadowDy="0"
+                        android:shadowRadius="10"/>
+
+                    <TextView
+                        android:id="@+id/detail_item_attributes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/white"
+
+                        android:shadowColor="#04E1FA"
+                        android:shadowDx="0"
+                        android:shadowDy="0"
+                        android:shadowRadius="10"/>
+
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/detail_item_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/detail_item_passive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="4dp"
+
+            android:shadowColor="#04E1FA"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="10"/>
 </LinearLayout>
+

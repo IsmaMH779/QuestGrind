@@ -3,6 +3,10 @@ package com.example.questgrind.attributes;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.questgrind.inventory.Item;
+
+import java.util.List;
+
 @Entity(tableName = "player")
 public class Player {
     @PrimaryKey(autoGenerate = true)
@@ -48,6 +52,7 @@ public class Player {
             level++;
             xp = 0;
             xpToNextLevel += 50;
+            aviableSkillPoints += 3;
         }
     }
 
@@ -138,4 +143,5 @@ public class Player {
     public void setId(int id) {
         this.id = id;
     }
+
 }

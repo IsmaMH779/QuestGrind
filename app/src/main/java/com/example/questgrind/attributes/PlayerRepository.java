@@ -19,7 +19,7 @@ public class PlayerRepository {
         player = playerDao.getPlayer();
 
         executorService.execute(() -> {
-            if (playerDao.getPlayerSync() == null) {  // Necesitas una versión síncrona de getPlayer()
+            if (playerDao.getPlayerSync() == null) {
                 playerDao.insert(new Player());
             }
         });

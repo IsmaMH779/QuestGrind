@@ -1,6 +1,7 @@
 package com.example.questgrind.inventory;
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,14 +50,36 @@ public class ItemFragment extends DialogFragment {
         if (getArguments() != null) {
             name.setText(getArguments().getString(ARG_ITEM_NAME));
             rank.setText(getArguments().getString(ARG_ITEM_RANK));
+            setRankColor(rank);
             attributes.setText(getArguments().getString(ARG_ITEM_ATTRIBUTES));
             passive.setText(getArguments().getString(ARG_ITEM_PASSIVE));
             image.setImageResource(getArguments().getInt(ARG_ITEM_IMAGE));
         }
 
         return new AlertDialog.Builder(requireContext())
-                .setView(view)
-                .setPositiveButton("Cerrar", (dialog, which) -> dismiss())
-                .create();
+                .setView(view).create();
+    }
+
+
+    private void setRankColor(TextView rank) {
+        // color del rango en base al rango
+        switch (getArguments().getString(ARG_ITEM_RANK)) {
+            case "S":
+                rank.setTextColor(Color.parseColor("#FF0000"));
+                rank.setShadowLayer(10,0,0, Color.parseColor("#FF0000"));
+                break;
+            case "A":
+                rank.setTextColor(Color.parseColor("#c802fd"));
+                rank.setShadowLayer(10,0,0, Color.parseColor("#c802fd"));
+                break;
+            case "B": ;
+                rank.setTextColor(Color.parseColor("#0094cf"));
+                rank.setShadowLayer(10,0,0, Color.parseColor("#0094cf"));
+                break;
+            case "C":
+                rank.setTextColor(Color.parseColor("#ffffff"));
+                rank.setShadowLayer(10,0,0, Color.parseColor("#ebebeb"));
+                break;
+        }
     }
 }

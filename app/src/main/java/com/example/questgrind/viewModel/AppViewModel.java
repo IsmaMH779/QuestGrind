@@ -139,20 +139,17 @@ public class AppViewModel extends AndroidViewModel {
 
     }
 
-    public void givePoints() {
-        if (player.getValue() != null) {
-            Player updatedPlayer = player.getValue();
-            updatedPlayer.setAviableSkillPoints(updatedPlayer.getAviableSkillPoints() + 3);
-            updatePlayer(updatedPlayer);
-        }
-    }
-
     public void giveXP() {
-        if (player.getValue() != null) {
-            Player updatedPlayer = player.getValue();
-            updatedPlayer.giveXP(50);
-            updatePlayer(updatedPlayer);
+        if (!givedXp) {
+            if (player.getValue() != null) {
+                Player updatedPlayer = player.getValue();
+
+                updatedPlayer.giveXP(50);
+                updatePlayer(updatedPlayer);
+            }
+            givedXp = true;
         }
+
     }
 
     public MutableLiveData<List<Item>> getItems() {
