@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.questgrind.R;
-import com.example.questgrind.databinding.FragmentDailyQuestBinding;
 import com.example.questgrind.databinding.FragmentInventoryBinding;
 import com.example.questgrind.viewModel.AppViewModel;
 
